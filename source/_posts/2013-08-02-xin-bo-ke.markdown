@@ -1,0 +1,10 @@
+---
+layout: post
+title: "新博客"
+date: 2013-08-02 19:25
+comments: true
+categories: 折腾
+---
+博客迁了又迁，真的是折腾，现在终于安家了
+
+很久没写了 以后多腾点时间记录点东西～
