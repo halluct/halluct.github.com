@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css常见浏览器兼容性问题记录 | 数到 C</title>
+
+  
+  <meta name="author" content="halluct">
+  
+
+  
+  <meta name="description" content="元素居中：一般使用margin:auto;方法，在IE6下不起作用，需要在父元素上声明text-align:center;在居中元素上声明text-align:left;
+
+list导航出现阶梯形状：一般浏览器下给li a添加float:left;即可，IE6下会出现阶梯状，解决方法是，给li添加d">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="css常见浏览器兼容性问题记录"/>
+
+  <meta property="og:site_name" content="数到 C"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="数到 C" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">数到 C</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>css常见浏览器兼容性问题记录</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2013/08/12/csschang-jian-liu-lan-qi-jian-rong-xing-wen-ti-ji-lu/" rel="bookmark">
+        <time class="entry-date published" datetime="2013-08-12T10:48:00.000Z">
+          2013-08-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <ol>
+<li><p>元素居中：一般使用margin:auto;方法，在IE6下不起作用，需要在父元素上声明text-align:center;在居中元素上声明text-align:left;</p>
+</li>
+<li><p>list导航出现阶梯形状：一般浏览器下给li a添加float:left;即可，IE6下会出现阶梯状，解决方法是，给li添加display:inline;或将li float:left;</p>
+</li>
+<li><p>float元素双边距：解决方法是，给该元素设置display:inline;</p>
+</li>
+<li><p>无法设置很小的高度：因为IE6下不能设置比默认字体高度小的高度，所以可以通过font-size:0;这种方法解决，或者设置overflow:hidden;</p>
+</li>
+<li><p>溢出边界：overflow:auto;的元素内的元素超出边界的部分会溢出外元素。解决方法，给外元素设置position:relative;</p>
+</li>
+<li><p>min-height和min-width不起作用：解决方法，给元素设置和min-height值一样的height，再添加一个height:auto!important;</p>
+</li>
+<li><p>list项目间存在空白间隙：解决方法，给li加上display:inline;或给li a加上float: left;clear:left;或给li a设置高度。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/前端/">前端</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 halluct
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

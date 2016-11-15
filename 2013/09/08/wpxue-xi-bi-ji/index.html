@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>wp学习笔记 | 数到 C</title>
+
+  
+  <meta name="author" content="halluct">
+  
+
+  
+  <meta name="description" content="问题：
+query(array(&amp;#39;post_type&amp;#39; =&amp;gt; &amp;#39;type_projects&amp;#39;, &amp;#39;showposts&amp;#39; =&amp;gt; &amp;#39;-1&amp;#39;, &amp;#39;order&amp;#39; =&amp;gt; &amp;#39;ASC&amp;#39;, &amp;#39;o">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="wp学习笔记"/>
+
+  <meta property="og:site_name" content="数到 C"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="数到 C" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">数到 C</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>wp学习笔记</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2013/09/08/wpxue-xi-bi-ji/" rel="bookmark">
+        <time class="entry-date published" datetime="2013-09-08T11:20:00.000Z">
+          2013-09-08
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><ol>
+<li><p><code>query(array(&#39;post_type&#39; =&gt; &#39;type_projects&#39;, &#39;showposts&#39; =&gt; &#39;-1&#39;, &#39;order&#39; =&gt; &#39;ASC&#39;, &#39;orderby&#39; =&gt; &#39;menu_order&#39;))</code></p>
+</li>
+<li><p><code>get_post_meta($post_id, &#39;x_project_excerpt&#39;, true);</code></p>
+</li>
+<li><p><code>register_post_type  : &#39;supports&#39; =&gt; array( &#39;title&#39;, &#39;editor&#39; )</code></p>
+</li>
+</ol>
+<ol>
+<li><p><code>the_permalink ? get_permalink</code></p>
+</li>
+<li><p><code>comments_template</code></p>
+</li>
+<li><p><code>page-contact</code> 的表单</p>
+</li>
+<li><code>page</code> 和 <code>single page</code> 是怎么对应的</li>
+</ol>
+<h4 id="答案："><a href="#答案：" class="headerlink" title="答案："></a>答案：</h4><ol>
+<li><code>&#39;showpost&#39; =&gt; &#39;-1&#39;</code></li>
+<li><code>&#39;x_project_excerpt&#39;</code> 是在 <code>custome_meta.php</code> 文件里自定义的</li>
+<li><code>&#39;title&#39;</code>, <code>&#39;editor&#39;</code> 就是在 <code>dashboard</code> 里添加 <code>post</code> 时给用户提供自定义内容的输入框</li>
+<li><code>get_permalink</code> 需要指定对应的 <code>post ID</code></li>
+<li>如果样式区别很大就自定义</li>
+<li><code>contact form 7</code> 插件</li>
+<li>通过 <code>slug</code> 或 <code>id</code> 对应（<code>slug</code> 在 <code>post_type.php</code> 中定义）</li>
+</ol>
+<h4 id="笔记："><a href="#笔记：" class="headerlink" title="笔记："></a>笔记：</h4><ol>
+<li><code>meta</code> 在 <code>functions/custom_meta.php</code> 中设置</li>
+<li><code>post_type</code> 在 <code>function/post_type.php</code> 中设置</li>
+<li><code>page</code> 中可以挑选一个作为默认模板</li>
+<li>页脚的版权信息要用 <code>&lt;?php options(&#39;of_copyright&#39;) ?&gt;</code> 替换</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/wordpress/">wordpress</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 halluct
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

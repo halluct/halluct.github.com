@@ -83,19 +83,19 @@
 <h3 id="函数节流-Throttle"><a href="#函数节流-Throttle" class="headerlink" title="函数节流 Throttle"></a>函数节流 Throttle</h3><ul>
 <li>原理：就是间隔一定的时间来触发回调以控制</li>
 <li>应用场景：<ol>
-<li>拖拽功能（mousemove）</li>
-<li>射击游戏的 mousedown/keydown 事件（单位时间内只发射一次）</li>
-<li>计算鼠标移动的距离（mousemove）</li>
-<li>canvas 模拟画板功能（mousemove）</li>
-<li>搜索联想（keyup）</li>
-<li>监听滚动事件判断是否到页面底部自动加载更多（给 scroll 加了 debounce 后，只有用户停止滚动后才会判断是否到了页面底部；如果是 throttle 的话，只要页面滚动就会间隔一段时间就判断一次）</li>
+<li>拖拽功能（<code>mousemove</code>）</li>
+<li>射击游戏的 <code>mousedown</code>/<code>keydown</code> 事件（单位时间内只发射一次）</li>
+<li>计算鼠标移动的距离（<code>mousemove</code>）</li>
+<li>canvas 模拟画板功能（<code>mousemove</code>）</li>
+<li>搜索联想（<code>keyup</code>）</li>
+<li>监听滚动事件判断是否到页面底部自动加载更多（给 <code>scroll</code> 加了 debounce 后，只有用户停止滚动后才会判断是否到了页面底部；如果是 throttle 的话，只要页面滚动就会间隔一段时间就判断一次）</li>
 </ol>
 </li>
 </ul>
 <h3 id="函数去抖-Debounce"><a href="#函数去抖-Debounce" class="headerlink" title="函数去抖 Debounce"></a>函数去抖 Debounce</h3><ul>
 <li>原理：对于一定段时间内连续的函数调用，只让其执行一次</li>
 <li>应用场景：<ol>
-<li>每次 resize/scroll 触发统计事件</li>
+<li>每次 <code>resize</code>/<code>scroll</code> 触发统计事件</li>
 <li>文本输入的验证</li>
 </ol>
 </li>
@@ -121,9 +121,560 @@
 
 
 
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2013/09/08/wpxue-xi-bi-ji/"><span>wp学习笔记</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2013/09/08/wpxue-xi-bi-ji/" rel="bookmark">
+        <time class="entry-date published" datetime="2013-09-08T11:20:00.000Z">
+          2013-09-08
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><ol>
+<li><p><code>query(array(&#39;post_type&#39; =&gt; &#39;type_projects&#39;, &#39;showposts&#39; =&gt; &#39;-1&#39;, &#39;order&#39; =&gt; &#39;ASC&#39;, &#39;orderby&#39; =&gt; &#39;menu_order&#39;))</code></p>
+</li>
+<li><p><code>get_post_meta($post_id, &#39;x_project_excerpt&#39;, true);</code></p>
+</li>
+<li><p><code>register_post_type  : &#39;supports&#39; =&gt; array( &#39;title&#39;, &#39;editor&#39; )</code></p>
+</li>
+</ol>
+<ol>
+<li><p><code>the_permalink ? get_permalink</code></p>
+</li>
+<li><p><code>comments_template</code></p>
+</li>
+<li><p><code>page-contact</code> 的表单</p>
+</li>
+<li><code>page</code> 和 <code>single page</code> 是怎么对应的</li>
+</ol>
+<h4 id="答案："><a href="#答案：" class="headerlink" title="答案："></a>答案：</h4><ol>
+<li><code>&#39;showpost&#39; =&gt; &#39;-1&#39;</code></li>
+<li><code>&#39;x_project_excerpt&#39;</code> 是在 <code>custome_meta.php</code> 文件里自定义的</li>
+<li><code>&#39;title&#39;</code>, <code>&#39;editor&#39;</code> 就是在 <code>dashboard</code> 里添加 <code>post</code> 时给用户提供自定义内容的输入框</li>
+<li><code>get_permalink</code> 需要指定对应的 <code>post ID</code></li>
+<li>如果样式区别很大就自定义</li>
+<li><code>contact form 7</code> 插件</li>
+<li>通过 <code>slug</code> 或 <code>id</code> 对应（<code>slug</code> 在 <code>post_type.php</code> 中定义）</li>
+</ol>
+<h4 id="笔记："><a href="#笔记：" class="headerlink" title="笔记："></a>笔记：</h4><ol>
+<li><code>meta</code> 在 <code>functions/custom_meta.php</code> 中设置</li>
+<li><code>post_type</code> 在 <code>function/post_type.php</code> 中设置</li>
+<li><code>page</code> 中可以挑选一个作为默认模板</li>
+<li>页脚的版权信息要用 <code>&lt;?php options(&#39;of_copyright&#39;) ?&gt;</code> 替换</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/wordpress/">wordpress</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2013/08/12/jsbi-bao/"><span>js闭包</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2013/08/12/jsbi-bao/" rel="bookmark">
+        <time class="entry-date published" datetime="2013-08-12T12:25:00.000Z">
+          2013-08-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>闭包就是函数的局部变量集合，只是这些局部变量在函数返回后会继续存在。</p>
+<p>闭包就是就是函数的“堆栈”在函数返回后并不释放，我们也可以理解为这些函数堆栈并不在栈上分配而是在堆上分配</p>
+<p>当在一个函数内定义另外一个函数就会产生闭包</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/前端/">前端</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2013/08/12/csschang-jian-liu-lan-qi-jian-rong-xing-wen-ti-ji-lu/"><span>css常见浏览器兼容性问题记录</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2013/08/12/csschang-jian-liu-lan-qi-jian-rong-xing-wen-ti-ji-lu/" rel="bookmark">
+        <time class="entry-date published" datetime="2013-08-12T10:48:00.000Z">
+          2013-08-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <ol>
+<li><p>元素居中：一般使用margin:auto;方法，在IE6下不起作用，需要在父元素上声明text-align:center;在居中元素上声明text-align:left;</p>
+</li>
+<li><p>list导航出现阶梯形状：一般浏览器下给li a添加float:left;即可，IE6下会出现阶梯状，解决方法是，给li添加display:inline;或将li float:left;</p>
+</li>
+<li><p>float元素双边距：解决方法是，给该元素设置display:inline;</p>
+</li>
+<li><p>无法设置很小的高度：因为IE6下不能设置比默认字体高度小的高度，所以可以通过font-size:0;这种方法解决，或者设置overflow:hidden;</p>
+</li>
+<li><p>溢出边界：overflow:auto;的元素内的元素超出边界的部分会溢出外元素。解决方法，给外元素设置position:relative;</p>
+</li>
+<li><p>min-height和min-width不起作用：解决方法，给元素设置和min-height值一样的height，再添加一个height:auto!important;</p>
+</li>
+<li><p>list项目间存在空白间隙：解决方法，给li加上display:inline;或给li a加上float: left;clear:left;或给li a设置高度。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/前端/">前端</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2013/08/06/javascriptmian-xiang-dui-xiang-bian-cheng-zong-jie/"><span>JavaScript面向对象编程总结</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2013/08/06/javascriptmian-xiang-dui-xiang-bian-cheng-zong-jie/" rel="bookmark">
+        <time class="entry-date published" datetime="2013-08-06T13:39:00.000Z">
+          2013-08-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>面向对象（Object-Oriented, OO）的语言都有类的概念，通过类可以创建任意多个具有相同属性和方法的对象。而JavaScript中并没有类的概念，因此它的对象也与基于类的语言中的对象有所不同。</p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>对象定义：“无序属性的集合，其属性可以包含任何值、对象或者函数”。</p>
+<p>属性</p>
+<p>方法</p>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>对象字面量</p>
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><ol>
+<li>工厂模式</li>
+<li>构造函数模式</li>
+<li>原型模式</li>
+<li>组合使用构造函数和原型模式</li>
+</ol>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><ol>
+<li>原型链继承</li>
+<li>借用构造函数继承</li>
+<li>组合继承</li>
+<li>原型式继承</li>
+<li>寄生式继承</li>
+<li>寄生组合式继承</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/前端/">前端</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2013/08/02/xin-bo-ke/"><span>新博客</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2013/08/02/xin-bo-ke/" rel="bookmark">
+        <time class="entry-date published" datetime="2013-08-02T11:25:00.000Z">
+          2013-08-02
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>博客迁了又迁，真的是折腾，现在终于安家了</p>
+<p>很久没写了 以后多腾点时间记录点东西～</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/折腾/">折腾</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2013/04/21/wo-xiang-hua-yi-zhi-mao/"><span>我想画一只猫</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2013/04/21/wo-xiang-hua-yi-zhi-mao/" rel="bookmark">
+        <time class="entry-date published" datetime="2013-04-21T12:57:00.000Z">
+          2013-04-21
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>最近在内心极度烦躁的时候就会开始画画。过程中不用思考任何东西所以比任何时候都轻松，完全的follow my heart。 于是我想画一只猫。女生似乎都会对猫有着与生俱来的好感，我也真的只是有好感。我不会去触碰它们，更别提自己养一只。而我想做的也只是画一只送我自己而已。</p>
+<p><img src="/images/yuki.jpg" alt="Yuki"></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/闲心/">闲心</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/06/07/qian-cai-hong/"><span>浅彩虹</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/06/07/qian-cai-hong/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-06-07T14:34:00.000Z">
+          2012-06-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>曹方2012浅彩虹全国唱游杭州站</p>
+<p><img src="/images/qiancaihong.jpg" alt="门票"></p>
+<p><img src="/images/caofang.jpg" alt="曹方"></p>
+<p>应该算是第一次看一场正式的演出吧，一直跟着班长在唱，很开心很投入。我想61也是。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/闲心/">闲心</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/06/01/jiu-xi-shao-kao/"><span>九溪烧烤</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/06/01/jiu-xi-shao-kao/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-06-01T12:14:00.000Z">
+          2012-06-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><img src="http://ww1.sinaimg.cn/large/4c64379ajw1dtisyfyp3rj.jpg" alt="九溪烧烤"></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/闲心/">闲心</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/05/20/happy-birthday-to-mei-li/"><span>Happy birthday to Mei Li</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/05/20/happy-birthday-to-mei-li/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-05-20T12:44:00.000Z">
+          2012-05-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>送上你爱的斋藤君。</p>
+<p><img src="/images/sato.jpg" alt="斋藤"></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/闲心/">闲心</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
 
 <nav class="pagination">
   
+  
+  <a href="/page/2/" class="pagination-next">Next</a>
   
 </nav>
     </main>

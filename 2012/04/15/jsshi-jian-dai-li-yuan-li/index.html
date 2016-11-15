@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Js事件代理原理 | 数到 C</title>
+
+  
+  <meta name="author" content="halluct">
+  
+
+  
+  <meta name="description" content="周六参加蘑菇街笔试，很不幸的考得一团糟。其中前端附加题的第二题是“简述js中事件代理的原理”，我看到就蒙了。也怪自己，平时写代码从来不怎么关注原理，这也算是次惩罚吧。以后得多关注原理性的东西了。
+回来之后立马查资料
+什么时候需要用到事件代理
+当我们需要同时绑定多个对象时。
+事件代理的实现原理
+利用浏">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Js事件代理原理"/>
+
+  <meta property="og:site_name" content="数到 C"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="数到 C" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">数到 C</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Js事件代理原理</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/04/15/jsshi-jian-dai-li-yuan-li/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-04-15T14:13:00.000Z">
+          2012-04-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>周六参加蘑菇街笔试，很不幸的考得一团糟。其中前端附加题的第二题是“简述js中事件代理的原理”，我看到就蒙了。也怪自己，平时写代码从来不怎么关注原理，这也算是次惩罚吧。以后得多关注原理性的东西了。</p>
+<p>回来之后立马查资料</p>
+<p>什么时候需要用到事件代理</p>
+<p>当我们需要同时绑定多个对象时。</p>
+<p>事件代理的实现原理</p>
+<p>利用浏览器中事件的冒泡（event bubbling）和事件源（target || srcElement）。</p>
+<p>在javascript中实现事件代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ul.onclick = function&#123;</div><div class="line">var e = e || window.event;</div><div class="line">clickedLi = e.srcElement || e.target;</div><div class="line">//do something</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在jQuery中实现事件代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ul.onclick(function() &#123;</div><div class="line">var $clickedLi = $(e.target);</div><div class="line">//do something</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>某些场景中特别适合使用事件代理，它有如下好处</p>
+<p>需要管理的handler更少。 占用的内存更少（创建的驻留在内存中的handler少了）。 DOM元素与代码更少的绑定。 DOM变更后（如添加dom节点）无须重新绑定事件处理器。 它也有如下不足</p>
+<p>并非所有的事件都能冒泡，如load, change, submit, focus, blur(jQuery间接的实现了focus和blur的事件代理)。 代理元素的handler管理复杂。 不好模拟用户触发事件（jQuery实现了）。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/前端/">前端</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 halluct
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

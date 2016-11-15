@@ -1,0 +1,652 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 2 | 数到 C</title>
+
+  
+  <meta name="author" content="halluct">
+  
+
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="数到 C"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="数到 C" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">数到 C</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/04/26/cheng-gong-he-shi-bai/"><span>成功和失败</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/04/26/cheng-gong-he-shi-bai/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-04-26T12:14:00.000Z">
+          2012-04-26
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>也许在成功和失败真正到来之前都会心存忐忑或者心怀侥幸。</p>
+<p>没有什么命中注定，一切结果都是由自身决定的。</p>
+<p>一次失败的打击也许比一次侥幸的成功带来得更多。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/闲心/">闲心</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/04/15/jsshi-jian-dai-li-yuan-li/"><span>Js事件代理原理</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/04/15/jsshi-jian-dai-li-yuan-li/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-04-15T14:13:00.000Z">
+          2012-04-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>周六参加蘑菇街笔试，很不幸的考得一团糟。其中前端附加题的第二题是“简述js中事件代理的原理”，我看到就蒙了。也怪自己，平时写代码从来不怎么关注原理，这也算是次惩罚吧。以后得多关注原理性的东西了。</p>
+<p>回来之后立马查资料</p>
+<p>什么时候需要用到事件代理</p>
+<p>当我们需要同时绑定多个对象时。</p>
+<p>事件代理的实现原理</p>
+<p>利用浏览器中事件的冒泡（event bubbling）和事件源（target || srcElement）。</p>
+<p>在javascript中实现事件代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ul.onclick = function&#123;</div><div class="line">var e = e || window.event;</div><div class="line">clickedLi = e.srcElement || e.target;</div><div class="line">//do something</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在jQuery中实现事件代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ul.onclick(function() &#123;</div><div class="line">var $clickedLi = $(e.target);</div><div class="line">//do something</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>某些场景中特别适合使用事件代理，它有如下好处</p>
+<p>需要管理的handler更少。 占用的内存更少（创建的驻留在内存中的handler少了）。 DOM元素与代码更少的绑定。 DOM变更后（如添加dom节点）无须重新绑定事件处理器。 它也有如下不足</p>
+<p>并非所有的事件都能冒泡，如load, change, submit, focus, blur(jQuery间接的实现了focus和blur的事件代理)。 代理元素的handler管理复杂。 不好模拟用户触发事件（jQuery实现了）。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/前端/">前端</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/04/11/jie-jue-ubuntuxia-rvm-usehe-rails-vbao-cuo-wen-ti/"><span>解决ubuntu下rvm Use和rails -v报错问题</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/04/11/jie-jue-ubuntuxia-rvm-usehe-rails-vbao-cuo-wen-ti/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-04-11T15:52:00.000Z">
+          2012-04-11
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>使用gem安装完rails之后功能都完好，但重启terminal之后再输入rails -v之后却提示“rails尚未安装”。后来又发现rvm use命令也出错，提示“rvm is not a function…”。在网上找了好久才找到解决方法。</p>
+<p>第一次需要输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;[[ -s &quot;$HOME/.rvm/scripts/rvm&quot; ]] &amp;&amp; . &quot;$HOME/.rvm/scripts/rvm&quot; # Load RVM function&apos; &gt;&gt; ~/.bash_profile</div></pre></td></tr></table></figure>
+<p>再重启terminal，输入：</p>
+<p>```<br>source .bash_profile #之后每次重启都需要再输一遍</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/ubuntu/">ubuntu</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/04/11/jie-jue-ubuntuxia-rails-serverti-shi-no-javascript-run-timewen-ti/"><span>解决ubuntu下rails Server提示no Javascript Run Time问题</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/04/11/jie-jue-ubuntuxia-rails-serverti-shi-no-javascript-run-timewen-ti/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-04-11T15:33:00.000Z">
+          2012-04-11
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>推荐方法2，简单有效。</p>
+<p>解决方法1（其实说的不太明白）：</p>
+<p>添加以下gem文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem ‘execjs’, gem ‘therubyracer’</div></pre></td></tr></table></figure>
+<p>这里需要先</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bundle install therubyracer</div></pre></td></tr></table></figure>
+<p>然后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bundle install</div></pre></td></tr></table></figure>
+<p>解决方法2：</p>
+<p>安装nodejs:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-cache search nodejs</div></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/ubuntu/">ubuntu</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/04/05/ubuntuxia-da-jian-lamphuan-jing-hou-xiu-gai-slash-var-slash-wwwwen-jian-jia-quan-xian/"><span>ubuntu下搭建LAMP环境后修改/var/www文件夹权限</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/04/05/ubuntuxia-da-jian-lamphuan-jing-hou-xiu-gai-slash-var-slash-wwwwen-jian-jia-quan-xian/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-04-05T14:42:00.000Z">
+          2012-04-05
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>LAMP环境搭好后默认的文件目录为/var/www，而该文件夹需要权限访问。可在Terminal中输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$sudo passwd root  #设置root密码</div><div class="line">$su root  #进入最高权限用户root模式</div><div class="line">$chown username /var/www  #username为你当前用户的用户名</div><div class="line">$exit</div></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/ubuntu/">ubuntu</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/04/05/ubuntuxia-shi-yong-apt-getshi-ti-shi-problem-with-mergelistwen-ti-jie-jue-fang-fa/"><span>Ubuntu下使用apt-get时提示Problem With MergeList问题解决方法</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/04/05/ubuntuxia-shi-yong-apt-getshi-ti-shi-problem-with-mergelistwen-ti-jie-jue-fang-fa/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-04-05T14:27:00.000Z">
+          2012-04-05
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>下午安装软件包时遇到一个小问题，使用apt-get安装时提示错误，关键字为“Problem with MergeList”，应该是源的问题。上网搜了一下，很快就找到答案了。方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$sudo rm /var/lib/apt/lists/* -vf  #删除mergelist</div><div class="line">$sudo apt-get update  #更新源</div></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/ubuntu/">ubuntu</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/03/31/shang-hai-zhi-xing/"><span>上海之行</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/03/31/shang-hai-zhi-xing/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-03-31T13:39:00.000Z">
+          2012-03-31
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><img src="/images/shanghai.jpg" alt="上海之行"></p>
+<p>DADA生日，于是特地跑去上海看她，也是很早之前就与她说好的。</p>
+<p>待了一天左右，她带我几乎吃遍了徐汇区的美味。晚上躺在床上，她第一次和我说起有关她的感情。看她一次次的装作不经意的擦去眼角的泪，实在是心疼，这么好的女孩儿，应该被好好珍惜才对。</p>
+<p>我拿生日礼物给她看，是很简陋的几条链子。她还是很高兴的捧起我的脸亲了两口。</p>
+<p>临走的时候，我们在车站检票口拥抱再见。她又叫住我，让我一定再来。</p>
+<p>一份真挚而又被彼此珍视的感情。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/闲心/">闲心</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/03/24/tuo-yan-zheng/"><span>拖延症</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/03/24/tuo-yan-zheng/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-03-24T11:41:00.000Z">
+          2012-03-24
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>所谓拖延症即凡事都喜欢拖拖拉拉，不到最后一刻就不会去做。</p>
+<p>我想这种症状在我，还有我周围许许多多的人身上都得到了一定程度的体现。应该可以算作现代人的通病了。</p>
+<p>就像我一直想把我前一个wordpress博客上的文章迁移到这里来，想了起码也有半个多月了，却还是拖拖拉拉不去做。每次想起来，都是以“不急”的理由往后延迟，再去干了别的事情，真是一种不知道如何表达的心情。</p>
+<p>于是我决定伙同高小姐一起大战拖延症，其实那家伙的症状比我更甚。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/闲心/">闲心</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/03/21/peng-you-he-lian-ren/"><span>朋友和恋人</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/03/21/peng-you-he-lian-ren/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-03-21T15:41:00.000Z">
+          2012-03-21
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>####朋友</p>
+<p>下午和寝室长，高小姐&amp;球去好乐迪唱歌。因为在朋友面前完全不用担心丢脸（因为该丢的都丢过了）所以吼的很开心。我高音唱不上去只能唱男中音已经成为不争的事实了。</p>
+<p>####恋人</p>
+<p>晚上上课，61下班后又在教室门外等了我半个多小时才去吃饭。一路上都是笑眯眯的，没有一点埋怨。我们给对方讲这一天发生的好玩的事情，然后一般是我送他到寝室楼下，纠缠一下要他送我回去，其实只是说说而已，想多待会儿而已。</p>
+<p>一天又过去，待在他们身边我觉得很安心。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/闲心/">闲心</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2012/03/17/douban/"><span>Douban</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/03/17/douban/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-03-17T13:21:00.000Z">
+          2012-03-17
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>现在总是有事没事就跑到豆瓣上瞧瞧，觉得看着别人欢乐也是件挺娱乐的事。生活里的我太不会和陌生人相处，有些话总不知道该不该讲出口，那在这里总该活跃点的好。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/闲心/">闲心</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="pagination">
+  
+  <a href="/" class="pagination-prev">Prev</a>
+  
+  
+  <a href="/page/3/" class="pagination-next">Next</a>
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 halluct
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>各个浏览器下对TextArea中字符解析的差别 | 数到 C</title>
+
+  
+  <meta name="author" content="halluct">
+  
+
+  
+  <meta name="description" content="换行符： 在textarea中“\n”和“\r\n”均可被浏览器解析为换行符，就这一点来说，各个浏览器之间并没有差异。 而当我们需要用js从textarea中取字符时，IE和opera会传入“\r\n”，而chrome、ff、safari则只传入“\n” 。 避免这种差异的方法就是用“\n”去替换掉">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="各个浏览器下对TextArea中字符解析的差别"/>
+
+  <meta property="og:site_name" content="数到 C"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="数到 C" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">数到 C</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>各个浏览器下对TextArea中字符解析的差别</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2012/02/02/ge-ge-liu-lan-qi-xia-dui-textareazhong-zi-fu-jie-xi-de-chai-bie/" rel="bookmark">
+        <time class="entry-date published" datetime="2012-02-02T14:10:00.000Z">
+          2012-02-02
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <ol>
+<li>换行符： 在textarea中“\n”和“\r\n”均可被浏览器解析为换行符，就这一点来说，各个浏览器之间并没有差异。 而当我们需要用js从textarea中取字符时，IE和opera会传入“\r\n”，而chrome、ff、safari则只传入“\n” 。 避免这种差异的方法就是用“\n”去替换掉文本域中的全部“\r\n”。这个用正则表达式很容易实现： </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var reNewLine = /\r\n/g; var isNewLine = textArea.value.replace(reNewLine, “\n”);</div></pre></td></tr></table></figure>
+<ol>
+<li>取字符： 写好一部分功能之后，在chrome、ff、safari、opera下均通过测试，IE8下的问题也用上述方法解决了，然后就是头疼的IE7了（忽略IE6）。 IE7及以下版本，无法用string[0]这样的方法取到字符，而必须用string.charAt(2)。 后来发现所有浏览器都可以用string.charAt(2)方法取到字符，以后只要记住这个就可以了。</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/前端/">前端</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 halluct
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
